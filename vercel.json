@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "odia-whatsapp-ai-agent",
+  "functions": {
+    "server.js": { "maxDuration": 30 }
+  },
+  "routes": [
+    { "src": "/webhooks/twilio", "methods": ["POST"], "dest": "server.js" },
+    { "src": "/webhooks/telegram", "methods": ["POST"], "dest": "server.js" },
+    { "src": "/speak", "methods": ["POST"], "dest": "server.js" },
+    { "src": "/billing/create-checkout", "methods": ["POST"], "dest": "server.js" },
+    { "src": "/health", "methods": ["GET"], "dest": "server.js" },
+    { "src": "/metrics", "methods": ["GET"], "dest": "server.js" },
+    { "src": "/(.*)", "dest": "server.js" }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "TIMEZONE": "Africa/Lagos"
+  },
+  "regions": ["sin1"]
+}
